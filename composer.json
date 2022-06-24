@@ -1,0 +1,16 @@
+{
+    "name": "dinoscape/playfab-php-sdk",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Dinoscape\\PlayfabPhpSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felix Klauke",
+            "email": "felix@klauke-enterprises.com"
+        }
+    ],
+    "require": {}
+}

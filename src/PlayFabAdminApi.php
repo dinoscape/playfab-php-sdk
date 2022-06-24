@@ -1,4 +1,6 @@
 <?php
+namespace PlayFabSDK;
+
 include 'PlayFabHttp.php';
 
 class PlayFabAdminApi
@@ -1382,4 +1384,5 @@ class PlayFabAdminApi
     }
 
 }
+
 ?>

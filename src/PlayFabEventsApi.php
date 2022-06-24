@@ -1,4 +1,6 @@
 <?php
+namespace PlayFabSDK;
+
 include 'PlayFabHttp.php';
 
 class PlayFabEventsApi
@@ -29,4 +31,5 @@ class PlayFabEventsApi
     }
 
 }
+
 ?>

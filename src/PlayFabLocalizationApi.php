@@ -1,4 +1,6 @@
 <?php
+namespace PlayFabSDK;
+
 include 'PlayFabHttp.php';
 
 class PlayFabLocalizationApi
@@ -16,4 +18,5 @@ class PlayFabLocalizationApi
     }
 
 }
+
 ?>

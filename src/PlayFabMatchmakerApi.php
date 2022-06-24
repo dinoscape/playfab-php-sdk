@@ -1,4 +1,6 @@
 <?php
+namespace PlayFabSDK;
+
 include 'PlayFabHttp.php';
 
 class PlayFabMatchmakerApi
@@ -65,4 +67,5 @@ class PlayFabMatchmakerApi
     }
 
 }
+
 ?>

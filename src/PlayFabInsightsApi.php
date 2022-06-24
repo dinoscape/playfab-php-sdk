@@ -1,4 +1,6 @@
 <?php
+namespace PlayFabSDK;
+
 include 'PlayFabHttp.php';
 
 class PlayFabInsightsApi
@@ -78,4 +80,5 @@ class PlayFabInsightsApi
     }
 
 }
+
 ?>

@@ -1,6 +1,7 @@
 <?php
 
-if (!class_exists("PlayFabSettings")) {
+namespace PlayFabSDK;
+if (!class_exists("PlayFabSDK\PlayFabSettings")) {
     class PlayFabSettings
     {
         public static $versionString = "PhpSdk-0.0.201014";
@@ -17,31 +18,23 @@ if (!class_exists("PlayFabSettings")) {
                 $titleId = PlayFabSettings::$titleId;
 
             $output = "";
-            if (!(substr(self::$productionEnvironmentUrl, 0, 4) === "http"))
-            {
-                if (isset(self::$verticalName))
-                {
+            if (!(substr(self::$productionEnvironmentUrl, 0, 4) === "http")) {
+                if (isset(self::$verticalName)) {
                     $output = "https://" . self::$verticalName;
-                }
-                else
-                {
+                } else {
                     $output = "https://" . $titleId;
                 }
             }
-            
+
             $output .= self::$productionEnvironmentUrl;
             $output .= $apiPath;
 
             $firstParam = True;
-            foreach($getParams as $key => $value)
-            {
-                if($firstParam)
-                {
+            foreach ($getParams as $key => $value) {
+                if ($firstParam) {
                     $output = $output . "?";
                     $firstParam = False;
-                }
-                else
-                {
+                } else {
                     $output = $output . "&";
                 }
 
@@ -87,54 +80,54 @@ if (!class_exists("PlayFabHttp")) {
             }
             curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeaders);
             $rawResult = curl_exec($ch);
-            
+
             if ($rawResult === false)
                 echo "cUrl Error: " . curl_error($ch) . "\n\n";
-            
+
             curl_close($ch);
-            
-            
+
+
             return $rawResult;
         }
 
         // public static function MakeHttpRequestApiCall($titleId, $apiPath, $request, $authKey, $authValue)
         // {
-            // $fullUrl = PlayFabSettings::GetFullUrl($titleId, $apiPath, PlayFabSettings::$requestGetParams);
-            // $httpRequest = new HttpRequest($fullUrl, HttpRequest::METH_POST);
-            // $requestJson = json_encode($request);
+        // $fullUrl = PlayFabSettings::GetFullUrl($titleId, $apiPath, PlayFabSettings::$requestGetParams);
+        // $httpRequest = new HttpRequest($fullUrl, HttpRequest::METH_POST);
+        // $requestJson = json_encode($request);
 
-            // // ApiCall Headers
-            // $httpHeaders = [
-                // "Content-Type" => "application/json",
-                // "X-ReportErrorAsSuccess" => "true",
-                // "X-PlayFabSDK" => PlayFabSettings::$versionString
-            // ];
-            // if ($authKey && $authValue)
-                // $httpHeaders[$authKey] = $authValue;
+        // // ApiCall Headers
+        // $httpHeaders = [
+        // "Content-Type" => "application/json",
+        // "X-ReportErrorAsSuccess" => "true",
+        // "X-PlayFabSDK" => PlayFabSettings::$versionString
+        // ];
+        // if ($authKey && $authValue)
+        // $httpHeaders[$authKey] = $authValue;
 
-            // // Compression
-            // if (PlayFabSettings::$enableCompression) {
-                // $httpHeaders[$authKey] = $authValue;
-                // $httpHeaders["Content-Encoding"] = "GZIP";
-                // $httpHeaders["Accept-Encoding"] = "GZIP";
-                // $requestJson = gzcompress($requestJson);
-            // }
+        // // Compression
+        // if (PlayFabSettings::$enableCompression) {
+        // $httpHeaders[$authKey] = $authValue;
+        // $httpHeaders["Content-Encoding"] = "GZIP";
+        // $httpHeaders["Accept-Encoding"] = "GZIP";
+        // $requestJson = gzcompress($requestJson);
+        // }
 
-            // // Perform the call
-            // $httpRequest->addHeaders($httpHeaders);
+        // // Perform the call
+        // $httpRequest->addHeaders($httpHeaders);
 
-            // try {
-                // $httpMessage = $httpRequest->send();
-                // $responseHeaders = $httpMessage->getHeaders();
-                // $responseJson = $httpMessage->getBody();
+        // try {
+        // $httpMessage = $httpRequest->send();
+        // $responseHeaders = $httpMessage->getHeaders();
+        // $responseJson = $httpMessage->getBody();
 
-                // $responseEncoding = $responseHeaders["Content-Encoding"];
-                // if (isset($responseEncoding) && $responseEncoding === "GZIP")
-                    // $responseJson = gzdecode($responseJson);
-                // return $responseJson;
-            // } catch (HttpException $ex) {
-                // return $ex;
-            // }
+        // $responseEncoding = $responseHeaders["Content-Encoding"];
+        // if (isset($responseEncoding) && $responseEncoding === "GZIP")
+        // $responseJson = gzdecode($responseJson);
+        // return $responseJson;
+        // } catch (HttpException $ex) {
+        // return $ex;
+        // }
         // }
     }
 }

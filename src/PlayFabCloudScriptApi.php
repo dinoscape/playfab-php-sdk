@@ -1,4 +1,6 @@
 <?php
+namespace PlayFabSDK;
+
 include 'PlayFabHttp.php';
 
 class PlayFabCloudScriptApi
@@ -150,4 +152,5 @@ class PlayFabCloudScriptApi
     }
 
 }
+
 ?>
